@@ -18,15 +18,12 @@ const loginRequest = {
 
 async function signInAndGetProfile() {
   try {
-    const popupResult = await msalInstance.loginPopup(loginRequest);
-    if (popupResult && popupResult.account) {
-      msalInstance.setActiveAccount(popupResult.account);
-    }
-    handleResponse(popupResult);
-  } catch (popupError) {
-    console.error('Popup login failed', popupError);
+    await msalInstance.loginRedirect(loginRequest);
+  } catch (error) {
+    console.error('Redirect login failed', error);
   }
 }
+
 
 function handleResponse(response) {
   if (response) {
