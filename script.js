@@ -2,7 +2,7 @@
 const msalConfig = {
   auth: {
     clientId: '11bf92b0-2411-48e4-aa6f-53401f6c7515', 
-    authority: 'https://login.microsoftonline.com/133de463-b865-4d46-a900-03b05fe008ce',
+    authority: 'https://login.microsoftonline.com/46b73b41-8843-4155-9082-47fa70788d0c',
     redirectUri: 'https://jumps710.github.io/entra/' // ← 必ずGitHub PagesのURLに合わせる
   },
   cache: {
