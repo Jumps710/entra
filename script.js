@@ -32,13 +32,32 @@ function handleResponse(response) {
 }
 
 function showShortcuts() {
+  const account = msalInstance.getActiveAccount();
   const linkArea = document.getElementById('link-area');
+  let welcomeMessage = '';
+
+  if (account && account.username) {
+    const username = account.username.toLowerCase();
+
+    if (username.includes('honsha')) {
+      welcomeMessage = '本社スタッフさん、ポータルへようこそ！';
+    } else if (username.includes('tenpo')) {
+      welcomeMessage = '店舗スタッフさん、ポータルへようこそ！';
+    } else {
+      welcomeMessage = 'ポータルへようこそ！';
+    }
+  } else {
+    welcomeMessage = 'ポータルへようこそ！';
+  }
+
   linkArea.innerHTML = `
-    <a href="https://line.worksmobile.com/default?version=28" class="shortcut-button" target="_blank">LINE WORKS</a>
+    <h2>${welcomeMessage}</h2>
+    <a href="https://line.worksmobile.com/more?version=v28" class="shortcut-button" target="_blank">LINE WORKS</a>
     <a href="lineworksRoger://join?version=12" class="shortcut-button">ラジャー</a>
     <a href="https://jumps710.github.io/erp" class="shortcut-button" target="_blank">基幹システム</a>
   `;
 }
+
 
 window.onload = async () => {
   try {
