@@ -41,14 +41,25 @@ function showShortcuts() {
 }
 
 window.onload = async () => {
-  if (window.opener == null) {
-    const accounts = msalInstance.getAllAccounts();
-    if (accounts.length > 0) {
-      handleResponse({ account: accounts[0] });
+  try {
+    const response = await msalInstance.handleRedirectPromise();
+
+    if (response !== null) {
+      console.log('Redirect response received', response);
+      msalInstance.setActiveAccount(response.account);
+      handleResponse(response);
     } else {
-      signInAndGetProfile();
+      const accounts = msalInstance.getAllAccounts();
+      if (accounts.length > 0) {
+        msalInstance.setActiveAccount(accounts[0]);
+        handleResponse({ account: accounts[0] });
+      } else {
+        console.log('No account, starting redirect login...');
+        signInAndGetProfile();
+      }
     }
-  } else {
-    console.log('Popup window detected, skipping sign-in.');
+  } catch (error) {
+    console.error('Error handling redirect response', error);
   }
 };
+
