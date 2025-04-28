@@ -61,9 +61,10 @@ function showShortcuts() {
 
 function logout() {
   msalInstance.logoutRedirect({
-    postLogoutRedirectUri: "https://jumps710.github.io/entra/"
+    postLogoutRedirectUri: "https://auth.worksmobile.com/view/oauth/sso/logout?redirect_uri=https%3A%2F%2Fjumps710.github.io%2Fentra%2F"
   });
 }
+
 
 
 window.onload = async () => {
