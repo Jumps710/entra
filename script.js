@@ -55,7 +55,7 @@ function showShortcuts() {
     <a href="https://line.worksmobile.com/default?version=28" class="shortcut-button" target="_blank">LINE WORKS</a>
     <a href="lineworksRoger://join?version=12" class="shortcut-button">ラジャー</a>
     <a href="https://jumps710.github.io/erp" class="shortcut-button" target="_blank">基幹システム</a>
-    <button onclick="logout()" class="shortcut-button">ログアウトする</button>
+    <button onclick="logout()" class="logout-button">ログアウトする</button>
   `;
 }
 
