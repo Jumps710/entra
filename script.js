@@ -47,6 +47,11 @@ function handleResponse(response) {
   }
 }
 
+function logout() {
+  msalInstance.logoutRedirect();
+}
+
+
 // ページロード時
 window.onload = async () => {
   if (window.opener == null) {
