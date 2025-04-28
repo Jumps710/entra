@@ -1,7 +1,7 @@
 const msalConfig = {
   auth: {
-    clientId: 'ここにあなたのclientId',
-    authority: 'https://login.microsoftonline.com/ここにあなたのtenantId',
+    clientId: '13307932-eddc-4846-9c3f-4335c59fa874',
+    authority: 'https://login.microsoftonline.com/46b73b41-8843-4155-9082-47fa70788d0c',
     redirectUri: 'https://jumps710.github.io/entra/'
   },
   cache: {
